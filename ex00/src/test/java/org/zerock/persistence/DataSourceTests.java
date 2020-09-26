@@ -39,7 +39,8 @@ public class DataSourceTests {
 	
 	@Test
 	public void testMyBatis() {
-		try(SqlSession session = sqlSessionFactory.openSession(); Connection con = session.getConnection()) {
+		try(SqlSession session = sqlSessionFactory.openSession(); 
+			Connection con = session.getConnection()) {
 			log.info(session);
 			log.info(con);
 		} catch (SQLException e) {
