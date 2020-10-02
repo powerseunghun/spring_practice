@@ -37,7 +37,7 @@ public class BoardServiceTests {
 		log.info("생성된 게시물의 번호 : " + board.getBno());
 	}
 	
-//	@Test
+	@Test
 	public void testGetList() {
 		service.getList().forEach(board -> log.info(board));
 	}
@@ -47,13 +47,13 @@ public class BoardServiceTests {
 		log.info(service.get(1L));
 	}
 	
-	@Test
+//	@Test
 	public void testDelete() {
 		// First. Check Exist bno..
 		log.info("REMOVE RESULT : " + service.remove(2L));
 	}
 	
-	@Test
+//	@Test
 	public void testUpdate() {
 		BoardVO board = service.get(1L);
 		
