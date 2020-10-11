@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Board Read</h1>
+		<h1 class="page-header">Board Modify</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -15,10 +15,12 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">Board Read Page</div>
+			<div class="panel-heading">Board Modify Page</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 				<form role="form" action="/board/modify" method="post">
+					<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum }"/>'>
+					<input type="hidden" name="amount" value='<c:out value="${cri.amount }"/>'>
 					<div class="form-group">
 						<label>Bno</label> <input class="form-control" name="bno" 
 						value='<c:out value="${board.bno }"/>' readonly>
@@ -64,7 +66,12 @@
 							}
 							else if (operation === 'list') {
 								formObj.attr("action", "/board/list").attr("method", "get");
+								var pageNumTag = $("input[name='pageNum']").clone();
+								var amountTag = $("input[name='amount']").clone();
+								
 								formObj.empty();
+								formObj.append(pageNumTag);
+								formObj.append(amountTag);
 							}
 							formObj.submit();
 						});
