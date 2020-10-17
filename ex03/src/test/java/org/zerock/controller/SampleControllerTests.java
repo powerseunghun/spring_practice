@@ -46,8 +46,9 @@ public class SampleControllerTests {
 		ticket.setOwner("Admin");
 		ticket.setGrade("AAA");
 		
-		String jsonStr = new Gson().toJson(ticket);
+//		String jsonStr = new Gson().toJson(ticket);
 		
+		String jsonStr = "";
 		log.info(jsonStr);
 		
 		mockMvc.perform(post("/sample/ticket")
