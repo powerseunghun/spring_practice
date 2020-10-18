@@ -1,5 +1,6 @@
 package org.zerock.mapper;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.junit.Test;
@@ -7,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.ReplyVO;
 
 import lombok.Setter;
@@ -26,7 +28,7 @@ public class ReplyMapperTests {
 		log.info("mapper : " + mapper);
 	}
 	
-	@Test
+//	@Test
 	public void testCreate() {
 		IntStream.rangeClosed(1, 10).forEach(i -> {
 			ReplyVO vo = new ReplyVO();
@@ -37,5 +39,42 @@ public class ReplyMapperTests {
 			
 			mapper.insert(vo);
 		});
+	}
+	
+//	@Test
+	public void testRead() {
+		Long targetRno = 5L;
+		ReplyVO vo = mapper.read(targetRno);
+		
+		log.info("vo : " + vo);
+	}
+	
+//	@Test
+	public void testDelete() {
+		Long targetRno = 1L;
+		
+		mapper.delete(targetRno);
+	}
+	
+//	@Test
+	public void testUpdate() {
+		Long targetRno = 10L;
+		
+		ReplyVO vo = mapper.read(targetRno);
+		
+		vo.setReply("update Reply " );
+		int count = mapper.update(vo);
+		
+		log.info("UPDATE COUNT : " + count);
+	}
+	
+	@Test
+	public void testList() {
+		Criteria cri = new Criteria();
+		
+		// 3145745L
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
+		
+		replies.forEach(reply -> log.info("reply : " + reply));
 	}
 }
