@@ -51,8 +51,6 @@ public class ReplyController {
 		Criteria cri = new Criteria(page, 10);
 		log.info(cri);
 		
-		System.out.println("GGG : " + service.getList(cri, bno));
-		
 		return new ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK);
 	}
 	
