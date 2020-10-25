@@ -19,13 +19,13 @@ public class SampleTxServiceTests {
 	
 	@Test
 	public void testLong() {
-		System.out.println("service : " + service);
-//		String str = "Starry\r\n" + 
-//					"Starry night\r\n" + 
-//					"Paint your palette blue and grey\r\n" + 
-//					"Look out on a summer's day";
-//		
-//		log.info(str.getBytes().length+"");
-//		service.addData(str);
+//		System.out.println("service : " + service);
+		String str = "Starry\r\n" + 
+					"Starry night\r\n" + 
+					"Paint your palette blue and grey\r\n" + 
+					"Look out on a summer's day";
+		
+		log.info(str.getBytes().length+"");
+		service.addData(str);
 	}
 }
