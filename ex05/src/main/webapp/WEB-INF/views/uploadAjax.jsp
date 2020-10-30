@@ -15,7 +15,7 @@
 	<button id="uploadBtn">Upload</button>
 	<script>
 		$(document).ready(function() {
-			var regex = new RegExp("(.*?)\.(exe|png|sh|zip|alz)$");
+			var regex = new RegExp("(.*?)\.(exe|/* png */|sh|zip|alz)$");
 			var maxSize = 5242880;
 			
 			function checkExtension(fileName, fileSize) {
