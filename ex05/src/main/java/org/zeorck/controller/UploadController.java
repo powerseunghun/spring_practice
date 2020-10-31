@@ -116,6 +116,8 @@ public class UploadController {
 				attachDTO.setUploadPath(uploadFolderPath);
 				// check image type file
 				if (checkImageType(saveFile)) {
+					attachDTO.setImage(true);
+					
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_" + uploadFileName));
 					
 					Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail, 100, 100);
