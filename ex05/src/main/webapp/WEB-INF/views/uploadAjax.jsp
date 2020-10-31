@@ -64,7 +64,10 @@
 						str += "<li><img src='/resources/img/dog.png'>" + obj.fileName + "</li>";
 					}
 					else {
-						str += "<li>" + obj.fileName + "</li>";
+						//str += "<li>" + obj.fileName + "</li>";
+						var fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+						
+						str += "<li><img src='/display?fileName=" + fileCallPath + "'></li>";
 					}
 				});
 				uploadResult.append(str);
@@ -80,6 +83,9 @@
 				
 				// add filedate to formdata
 				for (var i = 0; i < files.length; i++) {
+					if (!checkExtension(files[i].name, files[i].size)) {
+						
+					}
 					if (!checkExtension(files[i].name, files[i].size)) {
 						return false;
 					}
