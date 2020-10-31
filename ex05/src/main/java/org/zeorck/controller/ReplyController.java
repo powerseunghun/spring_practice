@@ -1,6 +1,4 @@
-package org.zerock.controller;
-
-import java.util.List;
+package org.zeorck.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.zerock.domain.Criteria;
-import org.zerock.domain.ReplyPageDTO;
-import org.zerock.domain.ReplyVO;
-import org.zerock.service.ReplyService;
+import org.zeorck.domain.Criteria;
+import org.zeorck.domain.ReplyPageDTO;
+import org.zeorck.domain.ReplyVO;
+import org.zeorck.service.ReplyService;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @RequestMapping("/replies/")
 @RestController
-@Log4j
+@Slf4j
 @AllArgsConstructor
 public class ReplyController {
 	private ReplyService service;
