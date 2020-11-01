@@ -1,5 +1,10 @@
 package org.zeorck.controller;
 
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.zeorck.domain.BoardAttachVO;
 import org.zeorck.domain.BoardVO;
 import org.zeorck.domain.Criteria;
 import org.zeorck.domain.PageDTO;
@@ -108,4 +115,11 @@ public class BoardController {
 		return "redirect:/board/list" + cri.getListLink();
 	}
 	
+	@GetMapping(value = "/getAttachList", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<List<BoardAttachVO>> getAttachList(Long bno) {
+		log.info("getAttachList {}", bno);
+		
+		return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
+	}
 }
