@@ -34,6 +34,6 @@ public class Criteria {
 				.queryParam("amount", this.getAmount())
 				.queryParam("type", this.getType())
 				.queryParam("keyword", this.getKeyword());
-		return builder.toString();
+		return builder.toUriString();
 	}
 }
