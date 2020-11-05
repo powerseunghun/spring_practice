@@ -14,7 +14,7 @@
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="member" password="member" authorities="member"/>
+				<security:user name="member" password="{noop}member" authorities="ROLE_MEMBER"/>
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>
